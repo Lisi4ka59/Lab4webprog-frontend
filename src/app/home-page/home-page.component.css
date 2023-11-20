@@ -1,0 +1,21 @@
+.signReg {
+    background-color: rgb(58, 136, 252); /* Цвет по умолчанию */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s; /* Длительность анимации при наведении */
+    cursor: pointer;
+    width: 150px;
+
+}
+.signReg:hover {
+    background-color: rgb(58, 136, 252);
+    background-image: linear-gradient(to bottom, rgb(58, 136, 252) 0%, rgb(46, 108, 201) 100%); /* Градиент */
+}
+#date {
+    height: 80px;
+}

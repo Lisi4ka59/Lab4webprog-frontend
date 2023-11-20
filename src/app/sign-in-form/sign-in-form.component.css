@@ -1,0 +1,51 @@
+.pad {
+    height: 3px;
+}
+input {
+    border-radius: 5px;
+}
+button {
+    background-color: rgb(58, 136, 252); /* Цвет по умолчанию */
+    border: none;
+    color: white;
+    padding: 12px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+    border-radius: 13px;
+    width: 150px;
+}
+
+button:hover {
+    background-color: rgb(3, 78, 252); /* Цвет при наведении */
+}
+
+button:active {
+    background-color: rgb(46, 108, 201); /* Цвет при нажатии */
+}
+
+button:focus {
+    outline: none; /* Убираем контур фокуса */
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1.5);
+    }
+}
+
+button:active {
+    animation-name: scale;
+    animation-duration: 0.4s;
+    animation-timing-function: ease;
+}

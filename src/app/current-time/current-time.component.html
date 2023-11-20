@@ -1,0 +1,9 @@
+
+    <div *ngFor="let datum of data | async">
+        {{datum.hour}}:{{datum.minute}}:{{datum.second}}
+        <br/>
+        <div id="dateFormat">
+            {{datum.day_of_week}} {{datum.day}}/{{datum.month}}/{{datum.year}}
+        </div>
+    </div>
+

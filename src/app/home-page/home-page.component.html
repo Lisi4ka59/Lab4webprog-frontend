@@ -1,0 +1,42 @@
+<img src="assets/resources/img/backhome.jpg" alt="back" id="back" height="2425" width="3019"/>
+<div class="intro" id="intro" style="height: 79vw;"></div>
+<div class="container">
+  <div class="data start-content">
+    <div class="navigation">
+      <div class="time-block" style="text-align: center; color: white">
+        <p style="font-size: 34px">Текущее время:</p>
+        <p style="font-size: 24px" id="date"> <app-current-time/></p>
+        <div>
+          <button (click)="showLoginForm()" class="signReg" style="border-right-color: #d1d1d1; border-right: solid 1px; border-bottom-left-radius: 5px">Вход</button>
+          <button (click)="showRegistrationForm()" class="signReg" style="border-bottom-right-radius: 5px">Регистрация</button>
+        </div>
+        <div *ngIf="showLogin">
+          <app-sign-in-form></app-sign-in-form>
+        </div>
+        <div *ngIf="showRegistration">
+          <app-registration-form></app-registration-form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script src="assets/scripts/three.r134.min.js"></script>
+<script src="assets/scripts/vanta.birds.min.js"></script>
+<script>
+  VANTA.BIRDS({
+    el: "#intro",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    backgroundAlpha: 0,
+    color1: 0x446dff,
+    color2: 0xcd6,
+    colorMode: "lerp"
+  })
+</script>
+

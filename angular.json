@@ -27,7 +27,12 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/scripts/jquery-3.7.1.js",
+              "src/assets/scripts/three.r134.min.js",
+              "src/assets/scripts/vanta.birds.min.js",
+              "src/assets/scripts/validation.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -96,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
