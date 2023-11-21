@@ -22,7 +22,7 @@ export class SignInServiceService {
     if (SignInServiceService.token == 0) {
       SignInServiceService.token = Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000;
     }
-    console.log(SignInServiceService.token);
+    //console.log(SignInServiceService.token);
     this.result = this.http.get(this.ROOT_URL + SignInServiceService.token);
     this.result.subscribe((x)=> {this.isValid = {isValidToken : (x as any).isValidToken};});
   }

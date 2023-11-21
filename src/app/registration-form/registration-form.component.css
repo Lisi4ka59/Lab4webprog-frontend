@@ -6,7 +6,7 @@ input {
 }
 button {
     background-color: rgb(58, 136, 252); /* Цвет по умолчанию */
-    border: none;
+    border: solid 1px;
     color: white;
     padding: 12px 15px;
     text-align: center;
@@ -21,10 +21,12 @@ button {
 
 button:hover {
     background-color: rgb(3, 78, 252); /* Цвет при наведении */
+    border-color: rgba(0, 0, 0, 0);
 }
 
 button:active {
     background-color: rgb(46, 108, 201); /* Цвет при нажатии */
+    border-color: rgba(0, 0, 0, 0);
 }
 
 button:focus {

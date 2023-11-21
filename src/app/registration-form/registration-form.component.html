@@ -1,18 +1,32 @@
 <div>
     <h2>Регистрация</h2>
-    <form>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
         <label for="username">Имя пользователя:</label>
         <br/>
-        <input type="text" id="username" name="username">
+        <input type="text" id="username" name="username" ngModel>
         <p class="pad"></p>
         <label for="password">Пароль:</label>
         <br/>
-        <input type="password" id="password" name="password">
+        <input type="password" id="password" name="password" ngModel>
         <p class="pad"></p>
         <label for="repeat_password">Повторите пароль:</label>
         <br/>
-        <input type="password" id="repeat_password" name="password">
+        <input type="password" id="repeat_password" name="repeat_password" ngModel>
         <p class="pad"></p>
         <button type="submit">Зарегистрироваться</button>
     </form>
+    <div *ngFor="let item of result  | async">
+        <div *ngIf="item.result == 'true'">
+            <p></p>
+            <a routerLink="/main" ><img src="assets/resources/img/button.png" alt="page" class="contact" style="width: 80px; border-radius: 10px"/></a>
+        </div>
+        <div *ngIf="item.result == 'false'">
+            <p></p>
+            <p>Логин уже занят!</p>
+        </div>
+        <div *ngIf="item.result == 'mismatch_passwords'">
+            <p></p>
+            <p>Пароли не совпадают!</p>
+        </div>
+    </div>
 </div>
