@@ -26,4 +26,5 @@ export class HomePageComponent {
     this.showLogin = false;
     this.showRegistration = true;
   }
+
 }

@@ -28,5 +28,13 @@
             <p></p>
             <p>Пароли не совпадают!</p>
         </div>
+        <div *ngIf="item.result == 'no_login'">
+            <p></p>
+            <p>Имя пользователя не может быть пустым!</p>
+        </div>
+        <div *ngIf="item.result == 'short_password'">
+            <p></p>
+            <p>Пароль должен содержать не меньше 8 символов!</p>
+        </div>
     </div>
 </div>

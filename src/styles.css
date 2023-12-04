@@ -70,11 +70,11 @@ a[href^="#"]:visited {
 
 }
 
-#res td, th{
+.res td, th{
   padding: 5px;
   border: 2px solid whitesmoke;
 }
-#res{
+.res{
 
   border-collapse: collapse;
 }
@@ -229,6 +229,7 @@ table {
   position: relative;
   background-image: url("/assets/resources/img/graph.jpg");
   background-color: white;
+  float: right;
 }
 #da{
   margin-left: 20px;
@@ -240,3 +241,47 @@ table {
   margin-right: 30px;
   padding: 15px;
 }
+
+#sparkles {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
+
+#sparkles::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 300%;
+  height: 300%;
+  background-image: radial-gradient(circle, white 10%, transparent 10%);
+  background-size: 30px 30px; /* Размер искр */
+  z-index: 2;
+  pointer-events: none;
+  animation: sparklesAnimation 1s infinite linear; /* Бесконечная анимация */
+}
+
+@keyframes sparklesAnimation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@media only screen and (max-width: 1179px) {
+  .container {
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+@media only screen and (max-width: 754px) {
+   .container {
+     width: 90%;
+     margin-left: 5%;
+   }
+}
+.table-container{
+  max-height: 600px;
+  overflow-y: auto;
+}
+

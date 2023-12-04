@@ -22,7 +22,8 @@ import {Router, RouterLink} from "@angular/router";
 export class RegistrationFormComponent {
   ROOT_URL = 'http://127.0.0.1:8080/register?login=';
   result: Observable<any> = of([{"result":"null"}]);
-  constructor(private http:HttpClient, signInService : SignInServiceService,private router : Router) {
+  token: number = Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000;
+  constructor(private http:HttpClient, private router : Router) {
   }
   onSubmit(f: NgForm) {
     this.ROOT_URL+= f.value.username;
@@ -31,14 +32,14 @@ export class RegistrationFormComponent {
     this.ROOT_URL+= "&repeat_passwd=";
     this.ROOT_URL+= f.value.repeat_password;
     this.ROOT_URL+= "&token=";
-    this.ROOT_URL+= SignInServiceService.token;
-//console.log(f.value.username + " " + f.value.password + " " + f.value.repeat_password + " " + SignInServiceService.token);
+    this.ROOT_URL+= this.token;
     this.result = this.http.get(this.ROOT_URL);
     this.result.subscribe((data: any) => {
       // Проверка результата на успешное выполнение
       if (data && data.length > 0 && data[0].result === 'true') {
         // Перенаправление на страницу "main" после успешной аутентификации
         this.router.navigate(['/main']);
+        localStorage.setItem('token', String(this.token));
       } else {
         // Логика для обработки других результатов
       }

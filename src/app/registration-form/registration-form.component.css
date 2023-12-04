@@ -2,7 +2,8 @@
     height: 3px;
 }
 input {
-    border-radius: 5px;
+    border-radius: 7px;
+    border: none;
 }
 button {
     background-color: rgb(58, 136, 252); /* Цвет по умолчанию */

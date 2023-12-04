@@ -23,6 +23,7 @@ export class CurrentTimeComponent {
   }
   @HostListener('window:load', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
+
     this.source.subscribe((x)=>{this.data = this.http.get(this.ROOT_URL);});
   }
 }

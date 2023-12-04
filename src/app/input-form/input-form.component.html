@@ -1,23 +1,59 @@
-<form action="/image" method="POST" id="forma">
+<form action="/image" #f="ngForm" method="GET" id="forma" ngForm (ngSubmit)="onSubmit(f)">
 
   <div class="xy_table">
     <div id="da">
-      <div id="d" >
+      <div id="d" (click)="onImageClick($event, f)" [style.background-image]="'url(' + ROOT_URL + ADD_URL + ')'">
 
       </div>
       <div id="resultat">
       </div>
     </div>
-    <div class="xy"> <div id="x"> X </div><div class="input"><label for="vvodx"></label><input class="in" type="text" name="X" id="vvodx"/></div> <div class="button">  <button class="xbutton"> -3 </button> <button class="xbutton"> -2 </button>  <button class="xbutton"> -1 </button> <button class="xbutton"> 0 </button>  <button class="xbutton"> 1 </button>  <button class="xbutton"> 2 </button>  <button class="xbutton"> 3 </button>  <button class="xbutton"> 4 </button>  <button class="xbutton"> 5 </button> </div>   </div>
-    <div class="xy"> <div><label for="vvody">Y</label></div><div class="input"><input class="in" type="text" name="Y" id="vvody" placeholder="значение от -5, до 3"/> </div>  </div>
-    <div class="xy"> <div id="r"> R </div><div class="input"><label for="vvodr"></label><input class="in" type="text" name="X" id="vvodr"/></div> <div class="button">  <button class="rbutton"> -3 </button> <button class="rbutton"> -2 </button>  <button class="rbutton"> -1 </button> <button class="rbutton"> 0 </button>  <button class="rbutton"> 1 </button>  <button class="rbutton"> 2 </button>  <button class="rbutton"> 3 </button>  <button class="rbutton"> 4 </button>  <button class="rbutton"> 5 </button> </div>   </div>
-    <div class="wrapper">
-      <input class="sub" type="submit" disabled value="Submit" id="submit"/>
+    <div>
+      <div class="xy">
+        <div id="x">X</div>
+        <div class="input">
+          <label for="vvodx"></label>
+          <input class="in" type="text" name="X" id="vvodx" [(ngModel)]="inputXValue " placeholder="значение от -3, до 5" ngModel/>
+        </div>
+        <div class="button">
+          <button class="xbutton" (click)="updateInputX('-3', $event)"> -3</button>
+          <button class="xbutton" (click)="updateInputX('-2', $event)"> -2</button>
+          <button class="xbutton" (click)="updateInputX('-1', $event)"> -1</button>
+          <button class="xbutton" (click)="updateInputX('0', $event)"> 0</button>
+          <button class="xbutton" (click)="updateInputX('1', $event)"> 1</button>
+          <button class="xbutton" (click)="updateInputX('2', $event)"> 2</button>
+          <button class="xbutton" (click)="updateInputX('3', $event)"> 3</button>
+          <button class="xbutton" (click)="updateInputX('4', $event)"> 4</button>
+          <button class="xbutton" (click)="updateInputX('5', $event)"> 5</button>
+        </div>
+      </div>
+
+      <div class="xy">
+        <div><label for="vvody">Y</label></div>
+        <div class="input"><input class="in" [(ngModel)]="inputYValue" type="text" name="Y" id="vvody" placeholder="значение от -5, до 3" ngModel/></div>
+      </div>
+      <div class="xy">
+        <div id="r"> R</div>
+        <div class="input"><label for="vvodr"></label><input value="1" [(ngModel)]="inputRValue" class="in" placeholder="1 по умолчанию" type="text" name="R" id="vvodr" ngModel/></div>
+        <div class="button">
+          <button class="rbutton" (click)="updateInputR('-3', $event)"> -3</button>
+          <button class="rbutton" (click)="updateInputR('-2', $event)"> -2</button>
+          <button class="rbutton" (click)="updateInputR('-1', $event)"> -1</button>
+          <button class="rbutton" (click)="updateInputR('0', $event)"> 0</button>
+          <button class="rbutton" (click)="updateInputR('1', $event)"> 1</button>
+          <button class="rbutton" (click)="updateInputR('2', $event)"> 2</button>
+          <button class="rbutton" (click)="updateInputR('3', $event)"> 3</button>
+          <button class="rbutton" (click)="updateInputR('4', $event)"> 4</button>
+          <button class="rbutton" (click)="updateInputR('5', $event)"> 5</button>
+        </div>
+      </div>
+      <div class="wrapper" *ngIf="inputXValue && inputYValue && inputRValue">
+        <button class="sub" type="submit" value="Submit" id="submit">Check</button>
+      </div>
     </div>
 
 
   </div>
-
 
 
 </form>
