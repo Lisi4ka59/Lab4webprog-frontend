@@ -3,6 +3,7 @@ import {interval, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {AsyncPipe, NgForOf} from '@angular/common';
 import {FormsModule} from "@angular/forms";
+import {ClearButtonComponent} from "../clear-button/clear-button.component";
 
 
 @Component({
@@ -12,7 +13,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     AsyncPipe,
     NgForOf,
-    FormsModule
+    FormsModule,
+    ClearButtonComponent
   ],
   standalone: true
 })
@@ -22,7 +24,7 @@ export class TableHistoryComponent implements OnInit{
 
   }
   readonly ROOT_URL ='http://127.0.0.1:8080/table?userId=' + this.token;
-  readonly CLEAR_URL ='http://127.0.0.1:8080/clear?token=' + this.token;
+
   data: any;
   @HostListener('document:click', ['$event'])
   getData(event: MouseEvent | null){
@@ -31,10 +33,7 @@ export class TableHistoryComponent implements OnInit{
     }, 75);
   }
 
-  clear() {
-console.log(this.CLEAR_URL);
-    this.http.get(this.CLEAR_URL);
-  }
+
   getDataDelay(){
     this.data = this.http.get(this.ROOT_URL);
   }
